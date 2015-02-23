@@ -3,7 +3,7 @@ Small jQuery extension to create tabbed interfaces
 
 # Example
 
-```
+```html
 <!-- Put everything inside a container div -->
 <div id="tabs">
   <ul>
