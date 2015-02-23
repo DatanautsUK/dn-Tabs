@@ -54,9 +54,16 @@ jQuery.fn.extend({
 
     $('a', tabs).on('click', function(e) {
       e.preventDefault();
-      var id = $(this).attr('href').replace('#', '');
+      var hash = $(this).attr('href');
+      var id = hash.replace('#', '');
+
       setCurrentTab(id);
-      location.hash = id;
+
+      if (history.pushState) {
+        history.pushState(null, null, hash);
+      } else {
+        location.hash = hash;
+      }
     });
 
     /*
