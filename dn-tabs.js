@@ -38,7 +38,7 @@ jQuery.fn.extend({
 
 
     var setCurrentTab = function(hash) {
-      var id = hash.replace('#');
+      var id = hash.replace('#', '');
 
       tabs.removeClass('active');
       panes.hide();
