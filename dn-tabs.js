@@ -1,7 +1,7 @@
 /* 
   dnTabs by Datanauts (datanauts.co.uk / @datanauts_uk)
   Small jQuery extension to create tabbed interfaces
-  v0.1 - 19 Feb 2015
+  v0.1.1 - 19 Feb 2015
 */
 
 jQuery.fn.extend({
@@ -32,10 +32,13 @@ jQuery.fn.extend({
       return tabs.children("[href='#" + id + "']").eq(0).closest('li');
     }
 
+    var getHash = function() {
+      return window.location.hash === "" ? firstTab().attr('href') : window.location.hash;
+    }
+
     var firstTab = function() {
       return tabs.eq(0).children('a').eq(0);
     }
-
 
     var setCurrentTab = function(hash) {
       var id = hash.replace('#', '');
@@ -56,7 +59,8 @@ jQuery.fn.extend({
 
     $('a', tabs).on('click', function(e) {
       e.preventDefault();
-      setCurrentTab( $(this).attr('href') );
+      var hash = $(this).attr('href');
+      setCurrentTab(hash);
 
       if (history.pushState) {
         history.pushState(null, null, hash);
@@ -65,11 +69,14 @@ jQuery.fn.extend({
       }
     });
 
+    $(window).on('hashchange', function() {
+      setCurrentTab(getHash());
+    });
+
     /*
       First page load
     */
 
-    var hash = (window.location.hash === "" ? firstTab().attr('href') : window.location.hash);
-    setCurrentTab(hash);
+    setCurrentTab(getHash());
   }
 });
