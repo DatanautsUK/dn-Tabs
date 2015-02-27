@@ -4,30 +4,39 @@
   height: 0;
   clear: both;
   visibility: hidden; }
+.dn-tabs-container ul, .dn-tabs-container li {
+  line-height: 1; }
 .dn-tabs-container ul {
-  margin: 0;
-  padding: 0;
+  border-bottom: 1px solid #09f;
+  margin: 20px 0;
+  padding: 0 0 0 10px;
   list-style-type: none; }
   .dn-tabs-container ul li.dn-tab {
     list-style-type: none;
-    float: left;
-    padding: 5px 25px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    background: #99d6ff; }
-    .dn-tabs-container ul li.dn-tab:last-child {
-      border-right: 1px solid black; }
-    .dn-tabs-container ul li.dn-tab.active {
-      background: #f90; }
+    margin: 0;
+    padding: 0;
+    display: inline-block; }
     .dn-tabs-container ul li.dn-tab a {
       display: block;
-      color: white;
-      text-decoration: none; }
+      text-decoration: none;
+      padding: 5px 25px;
+      border-radius: 5px 5px 0 0;
+      background: #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      color: #999;
+      margin: 0 1px 0 0; }
       .dn-tabs-container ul li.dn-tab a:hover {
-        cursor: pointer;
-        background: #08f; }
+        color: #fff;
+        border-bottom: 1px solid #09f;
+        background: #09f; }
+    .dn-tabs-container ul li.dn-tab.active a {
+      border: 1px solid #09f;
+      border-bottom: 1px solid #fff;
+      margin-bottom: -1px;
+      padding-bottom: 6px;
+      background: #fff;
+      color: #09f; }
 .dn-tabs-container div.dn-tab-panel {
-  padding: 10px 0; }
+  padding: 20px; }
 
 /*# sourceMappingURL=dn-tabs.css.map */
