@@ -37,7 +37,9 @@ jQuery.fn.extend({
     }
 
 
-    var setCurrentTab = function(id) {
+    var setCurrentTab = function(hash) {
+      var id = hash.replace('#');
+
       tabs.removeClass('active');
       panes.hide();
       
@@ -54,15 +56,12 @@ jQuery.fn.extend({
 
     $('a', tabs).on('click', function(e) {
       e.preventDefault();
-      var hash = $(this).attr('href');
-      var id = hash.replace('#', '');
-
-      setCurrentTab(id);
+      setCurrentTab( $(this).attr('href') );
 
       if (history.pushState) {
         history.pushState(null, null, hash);
       } else {
-        location.hash = hash;
+        window.location.hash = hash;
       }
     });
 
@@ -70,7 +69,7 @@ jQuery.fn.extend({
       First page load
     */
 
-    var id = (location.hash === "" ? firstTab().attr('href') : location.hash);
-    setCurrentTab(id.replace('#', ''));
+    var hash = (window.location.hash === "" ? firstTab().attr('href') : window.location.hash);
+    setCurrentTab(hash);
   }
 });
