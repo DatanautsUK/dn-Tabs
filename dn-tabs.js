@@ -57,7 +57,7 @@ jQuery.fn.extend({
       Events
     */
 
-    $('a', tabs).on('click', function(e) {
+    $('a', tabs).bind('click', function(e) {
       e.preventDefault();
       var hash = $(this).attr('href');
       setCurrentTab(hash);
@@ -69,7 +69,7 @@ jQuery.fn.extend({
       }
     });
 
-    $(window).on('hashchange', function() {
+    $(window).bind('hashchange', function() {
       setCurrentTab(getHash());
     });
 
