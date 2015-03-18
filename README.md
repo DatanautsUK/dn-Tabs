@@ -1,4 +1,4 @@
-# dnTabs
+# dn-Tabs
 Small jQuery extension to create tabbed interfaces
 
 # Example
